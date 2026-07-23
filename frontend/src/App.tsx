@@ -1,4 +1,5 @@
 import React, { useEffect, Suspense } from "react";
+import Header from "./components/header/Header";
 import { Provider, useSelector } from "react-redux";
 // import { ThemeProvider, CssBaseline } from "@material-ui/core";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -45,7 +46,7 @@ const AuthWrapper = () => {
 };
 
 const App = () => {
-  return <>Heyi</>;
+  return <Header />;
 };
 
 export default App;
