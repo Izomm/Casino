@@ -14,16 +14,6 @@ if (!container) {
 }
 
 const root = ReactDOM.createRoot(container);
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        {" "}
-        {/* ⭐ Wrap with BrowserRouter */}
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
-);
+root.render(<React.StrictMode></React.StrictMode>);
 
 // ReactDOM.render(<App />, document.getElementById("root"));

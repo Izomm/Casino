@@ -1,7 +1,7 @@
 import React from "react";
 
 const AuthenticatedApp = () => {
-  return console.log("return");
+  return <>Authenticated App</>;
 };
 
 export default AuthenticatedApp;

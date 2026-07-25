@@ -1,4 +1,4 @@
-// import { Theme } from "@material-ui/core";
+import { Theme } from '@mui/material';
 
 export type Id = number;
 
@@ -100,9 +100,9 @@ export interface Avatar {
   name: string;
 }
 
-// export interface WithTheme {
-//   theme: Theme;
-// }
+export interface WithTheme {
+  theme: Theme;
+}
 
 export interface AuthSetup {
   ALLOW_GUEST_ACCESS: boolean;
