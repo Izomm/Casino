@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import styles from "./Header.module.scss";
+import styles from "./scss/Header.module.scss";
 
 // Adjust this to match your actual store shape (see src/store.ts / types.ts)
 interface RootState {

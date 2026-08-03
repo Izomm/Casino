@@ -14,6 +14,11 @@ if (!container) {
 }
 
 const root = ReactDOM.createRoot(container);
-root.render(<React.StrictMode></React.StrictMode>);
+root.render(
+  <React.StrictMode>
+    {" "}
+    <App></App>
+  </React.StrictMode>
+);
 
 // ReactDOM.render(<App />, document.getElementById("root"));

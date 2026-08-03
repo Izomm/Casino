@@ -1,0 +1,163 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 220px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+
+  padding: 0.75rem 1.1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  // frosted glass base
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+
+  // blurred internal white glow, layered with outer depth shadow
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 20px 30px -10px rgba(255, 255, 255, 0.25),
+    inset 0 -20px 30px -10px rgba(255, 255, 255, 0.05);
+
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  // soft glow blob that sits behind the glass, blurred, for extra depth
+  &::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: 10%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.35),
+      transparent 70%
+    );
+    filter: blur(18px);
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.4),
+      inset 0 1px 1px rgba(255, 255, 255, 0.6),
+      inset 0 20px 30px -10px rgba(255, 255, 255, 0.3),
+      inset 0 -20px 30px -10px rgba(255, 255, 255, 0.08);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.triggerOpen {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.triggerLabel {
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chevron {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  color: #e2e8f0;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: 240px;
+  overflow-y: auto;
+
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(20, 24, 34, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+
+  animation: dropdownIn 0.15s ease-out;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panelItem {
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.panelItemSelected {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.panelItemDisabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

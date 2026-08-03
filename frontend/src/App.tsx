@@ -5,7 +5,7 @@ import { ThemeProvider, CssBaseline, GlobalStyles } from "@mui/material";
 import { Global } from "@emotion/react";
 import { css } from "@emotion/react";
 import store, { RootState } from "./store";
-import Header from "./components/header/Header";
+import Header from "./components/header/header";
 import FullPageSpinner from "./components/FullPageSpinner";
 import { theme } from "./const";
 import { ToastContainer } from "react-toastify";
@@ -39,7 +39,6 @@ const App = () => {
     <Provider store={store}>
       <Router>
         {" "}
-        // ✅ ONLY ONE Router
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Header />

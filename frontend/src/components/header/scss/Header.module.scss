@@ -28,7 +28,7 @@ $gray-dark: #2a2a4a;
 .header__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,20 +57,52 @@ $gray-dark: #2a2a4a;
     transform: scale(1.05);
   }
 
-  // Casino logo icon (optional - add if you want)
-  &::before {
-    content: '🎰';
-    font-size: 1.8rem;
-    margin-right: 0.5rem;
-    display: inline-block;
-
-    @media (max-width: 480px) {
-      font-size: 1.4rem;
-      margin-right: 0.3rem;
-    }
+  .header__bubblediv{
+    position: absolute;
+    left:10px;
+    top:0;
   }
-}
 
+  .header__vubble{
+    position: relative;
+    // left:20px;
+    // top:10px;
+  }
+
+  // Casino logo icon (optional - add if you want)
+  // &::before {
+  //   content: '🎰';
+  //   font-size: 1.8rem;
+  //   margin-right: 0.5rem;
+  //   display: inline-block;
+
+  //   @media (max-width: 480px) {
+  //     font-size: 1.4rem;
+  //     margin-right: 0.3rem;
+  //   }
+  // }
+}
+.header__logo{
+  display: flex;
+  align-items: center;
+
+}
+.header__bubble__one{
+  
+  width: 30px;
+  
+  
+
+}
+.header__bubble__two{
+  position: relative;
+  left: -10px;
+  top:15px;
+  width: 40px;
+  
+  
+
+}
 .header__logo-text {
   font-size: 2rem;
   font-weight: 800;
