@@ -1,0 +1,23 @@
+.margin {
+  margin: 0;
+}
+
+.bubbles_div{
+    z-index: -1;
+    position: absolute;
+    top: 15px;
+    left: 40px
+
+   
+}
+.size1{
+    position: absolute;
+    width: 30px;
+    top:0px;
+}
+.size2{
+    width: 35px;
+    position: absolute;
+    top:20px;
+    left: 10px;
+}

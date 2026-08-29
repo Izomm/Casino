@@ -3,7 +3,8 @@
   display: inline-flex;
   flex-direction: column;
   gap: 0.4rem;
-  min-width: 220px;
+  min-width: 120px;
+  margin-left: 50px;
 }
 
 .label {
@@ -161,3 +162,4 @@
   opacity: 0.4;
   pointer-events: none;
 }
+

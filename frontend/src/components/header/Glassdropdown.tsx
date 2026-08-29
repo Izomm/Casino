@@ -15,7 +15,7 @@ interface GlassDropdownProps {
   onChange: (value: string) => void;
 }
 
-export const GlassDropdown: React.FC<GlassDropdownProps> = ({
+export const Glassdropdown: React.FC<GlassDropdownProps> = ({
   label,
   placeholder = "Select an option",
   options,
@@ -23,6 +23,8 @@ export const GlassDropdown: React.FC<GlassDropdownProps> = ({
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedValue, changeSelectedValue] = useState("");
+
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   // close the panel when clicking anywhere outside this component
@@ -39,18 +41,18 @@ export const GlassDropdown: React.FC<GlassDropdownProps> = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const selectedOption = options.find((opt) => opt.value === value);
+  const selectedOption = options.find((opt) => opt.value === selectedValue);
+  // const selectedOption = options.find((opt) => opt.value === selectedValue.value);
 
   const handleSelect = (option: GlassDropdownOption) => {
     if (option.disabled) return;
     onChange(option.value);
+    changeSelectedValue(option.value);
     setIsOpen(false);
   };
 
   return (
     <div className={styles.wrapper} ref={wrapperRef}>
-      {label && <label className={styles.label}>{label}</label>}
-
       <button
         type="button"
         className={[styles.trigger, isOpen && styles.triggerOpen]
@@ -88,7 +90,7 @@ export const GlassDropdown: React.FC<GlassDropdownProps> = ({
               aria-disabled={option.disabled}
               className={[
                 styles.panelItem,
-                option.value === value && styles.panelItemSelected,
+                option.value === selectedValue && styles.panelItemSelected,
                 option.disabled && styles.panelItemDisabled,
               ]
                 .filter(Boolean)
@@ -104,4 +106,4 @@ export const GlassDropdown: React.FC<GlassDropdownProps> = ({
   );
 };
 
-export default GlassDropdown;
+export default Glassdropdown;

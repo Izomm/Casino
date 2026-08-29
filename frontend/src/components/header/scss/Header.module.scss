@@ -291,7 +291,7 @@ $gray-dark: #2a2a4a;
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, $accent, darken($accent, 10%));
+ background: linear-gradient(135deg, #FB0B64 0%, #C90850 100%);
   border: 2px solid transparent;
   white-space: nowrap;
   box-shadow: 0 4px 15px rgba($accent, 0.3);
@@ -387,4 +387,12 @@ $gray-dark: #2a2a4a;
     font-size: 0.7rem;
     padding: 0.2rem 0.4rem;
   }
+}
+
+.vubble_box_div{
+  display: flex;
+  align-items: center;
+
+
+
 }

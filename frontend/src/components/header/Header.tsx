@@ -1,7 +1,16 @@
-import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "./scss/Header.module.scss";
+import bubblestyles from "./scss/Bubble.module.scss";
+import React, { useState } from "react";
+import "./Glassdropdown";
+
+import { Reward } from "./rewards";
+
+import { VubbleImage } from "./vubble";
+import { Bubble } from "./bubble";
+import GlassDropdown, { Glassdropdown } from "./Glassdropdown";
+import clsx from "clsx";
 
 // Adjust this to match your actual store shape (see src/store.ts / types.ts)
 interface RootState {
@@ -14,36 +23,32 @@ interface RootState {
 
 export function Header() {
   const auth = useSelector((state: RootState) => state.auth);
+  const [selectedGame, setSelectedGame] = useState("");
+  const gameOptions = [
+    { label: "Blackjack", value: "blackjack" },
+    { label: "Roulette", value: "roulette" },
+    { label: "Submarine", value: "holdem" },
+    { label: "Baccarat", value: "baccarat", disabled: true },
+  ];
 
   return (
     <header className={styles.header}>
       <div className={styles.header__inner}>
-        <Link to="/" className={styles.header__logo}>
-          <span className={styles["header__logo-text"]}>Casino</span>
-        </Link>
+        <div className={styles.vubble_box_div}>
+          <VubbleImage />
+          <div className={bubblestyles.bubbles_div}>
+            <Bubble className={clsx(bubblestyles.margin, bubblestyles.size1)} />
+            <Bubble className={clsx(bubblestyles.margin, bubblestyles.size2)} />
+          </div>
 
-        <nav className={styles.header__nav}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? `${styles.header__link} ${styles["header__link--active"]}`
-                : styles.header__link
-            }
-          >
-            Lobby
-          </NavLink>
-          <NavLink
-            to="/games"
-            className={({ isActive }) =>
-              isActive
-                ? `${styles.header__link} ${styles["header__link--active"]}`
-                : styles.header__link
-            }
-          >
-            Games
-          </NavLink>
-        </nav>
+          <Glassdropdown
+            label="label"
+            placeholder="Games"
+            options={gameOptions}
+            value="holdem"
+            onChange={setSelectedGame}
+          />
+        </div>
 
         <div className={styles.header__account}>
           {auth?.isAuthenticated ? (
@@ -55,11 +60,12 @@ export function Header() {
             </>
           ) : (
             <Link to="/login" className={styles.header__login}>
-              Log In
+              Connect
             </Link>
           )}
         </div>
       </div>
+      <Reward />
     </header>
   );
 }
